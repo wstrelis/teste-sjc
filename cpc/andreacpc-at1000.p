@@ -131,7 +131,7 @@ procedure prLimpaGuiaAnteriorPedidoComplemento:
     if available b-guiautor then 
     do:
         
-        if (b-guiautor.cd-unidade-carteira <> 666) then 
+        if (b-guiautor.cd-unidade-carteira <> 777) then 
         do:
 
             if (b-guiautor.aa-guia-atendimento-ant > 0 and b-guiautor.nr-guia-atendimento-ant > 0) then 
