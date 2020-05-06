@@ -1,4 +1,4 @@
-// celso
+// celso GAY
 /*------------------------------------------------------------------------
     File        : Faturamento.p
     Purpose     :
@@ -828,7 +828,7 @@ define variable ENVIAR_DADOS_ARQUIVO            as   character  init 'ARQUIVO'  
 define new global shared variable hd-web-service                  as   handle                     no-undo.
 define new global shared variable hd-progress-service             as   handle                     no-undo.
 
-// Tabela que armazena as requisi��es assincronas dos webservices. Tem por finalidade apenas n�o destruir o handle da requisi��o para que o resultado possa ser processado
+// Tabela que armazena as requisiäes assincronas dos webservices. Tem por finalidade apenas nÆo destruir o handle da requisiÆo para que o resultado possa ser processado
 
 define temp-table temp-request-handlers         no-undo
     field hd-request as handle .
@@ -1010,7 +1010,7 @@ end function.
 procedure HandleProcedureReturn:    
     define input parameter dt-e             as   datetime       no-undo.
         
-    log-manager:write-message(substitute ('hora do termino da requisi��o: &1', dt-e)).
+    log-manager:write-message(substitute ('hora do termino da requisiÆo: &1', dt-e)).
     process events.   
 end procedure.
 
@@ -1031,7 +1031,7 @@ function EnviarDados returns logical
     define variable dt-output               as   datetime           no-undo.
     
     find first temp-parametro-entrada.       
-    log-manager:write-message (substitute ('modo de comunica��o: &1', temp-parametro-entrada.ch-modo-envio-dados ),'DEBUG') no-error.
+    log-manager:write-message (substitute ('modo de comunicaÆo: &1', temp-parametro-entrada.ch-modo-envio-dados ),'DEBUG') no-error.
     
     if temp-parametro-entrada.ch-modo-envio-dados   = ENVIAR_DADOS_WEBSERVICE
     then do:
@@ -1061,7 +1061,7 @@ function EnviarDados returns logical
         end.
         // armazena na temp-table o handle da requisicao para que o objeto nao seja destruido e possa processasr o retorno. caso os handles sejam destruidos, 
 
-        // a property hd-web-service:async-request-count nunca ser� atualizada com o resultado dos processamentos.
+        // a property hd-web-service:async-request-count nunca ser  atualizada com o resultado dos processamentos.
 
         create temp-request-handlers.
         assign temp-request-handlers.hd-request = hd-request.
@@ -1210,28 +1210,28 @@ define dataset XML_ALERTAS namespace-uri "http://www.thealth.com.br/BillingAlert
 
 define variable CH_MENSAGEM_COPART_NAO_FATURADA
                                                 as   character
-                                                init "Coparticipa��o em movimento liberado pelo RC e n�o faturada" no-undo.
+                                                init "CoparticipaÆo em movimento liberado pelo RC e nÆo faturada" no-undo.
 define variable CH_MENSAGEM_CONTRATO_SEM_NOTASERV   
                                                 as   character  
-                                                init "Contrato ativo no per�odo mas sem nota de servi�o" no-undo.
+                                                init "Contrato ativo no per¡odo mas sem nota de servio" no-undo.
 define variable CH_MENSAGEM_NOTASERV_SEM_FATURA   
                                                 as   character  
-                                                init "Nota de servi�o n�o possui fatura gerada" no-undo.
+                                                init "Nota de servio nÆo possui fatura gerada" no-undo.
 define variable CH_MENSAGEM_NOTASERV_VINCULADO_FATURA_INEXISTENTE   
                                                 as   character  
-                                                init "Nota de servi�o vinculado a fatura inexistente" no-undo.                                                
+                                                init "Nota de servio vinculado a fatura inexistente" no-undo.                                                
 define variable CH_MENSAGEM_FATURA_NAO_INTEGRADA_FINANCEIRO 
                                                 as   character  
-                                                init "Fatura n�o integrada no financeiro" no-undo.                                                       
+                                                init "Fatura nÆo integrada no financeiro" no-undo.                                                       
 define variable CH_MENSAGEM_FATURA_VINCULADO_TITULO_INEXISTENTE
                                                 as   character  
-                                                init "Fatura vinculada a t�tulo inexistente" no-undo.                                                                                            
+                                                init "Fatura vinculada a t¡tulo inexistente" no-undo.                                                                                            
 define variable CH_MENSAGEM_MOVIMENTO_CUSTO_NAO_FATURADO
                                                 as   character  
-                                                init "Movimento de custo operacional liberado no contas e n�o faturado" no-undo.                                                                                            
+                                                init "Movimento de custo operacional liberado no contas e nÆo faturado" no-undo.                                                                                            
 define variable CH_MENSAGEM_MOVIMENTO_INTERCAMBIO_NAO_FATURADO
                                                 as   character  
-                                                init "Movimento de interc�mbio liberado no contas e n�o faturado" no-undo.                                                                                            
+                                                init "Movimento de intercmbio liberado no contas e nÆo faturado" no-undo.                                                                                            
 
 /* ********************  Preprocessor Definitions  ******************** */
 
@@ -1338,7 +1338,7 @@ procedure LeInsumos:
                                                      
             if not lg-gerar-alerta 
             then do:
-                log-manager:write-message (substitute ('registro sinalizado para não gerar alerta pelo especifico do cliente'),'DEBUG').
+                log-manager:write-message (substitute ('registro sinalizado para nÃ£o gerar alerta pelo especifico do cliente'),'DEBUG').
                 next.
             end.                                                     
             
@@ -1371,7 +1371,7 @@ procedure LeInsumos:
                XML_ALERTA.VALOR                     = mov-insu.vl-real-pago.           
 
         create XML_DADOS_EXTRAS.
-        assign XML_DADOS_EXTRAS.CAMPO               = 'Código Glosa'
+        assign XML_DADOS_EXTRAS.CAMPO               = 'CÃ³digo Glosa'
                XML_DADOS_EXTRAS.VALOR               = string (mov-insu.cd-cod-glo)
                XML_DADOS_EXTRAS.XML_ALERTA_id       = recid (XML_ALERTA). 
 
@@ -1381,7 +1381,7 @@ procedure LeInsumos:
                XML_DADOS_EXTRAS.XML_ALERTA_id       = recid (XML_ALERTA). 
     
         create XML_DADOS_EXTRAS.
-        assign XML_DADOS_EXTRAS.CAMPO               = 'Forma Cobrança'
+        assign XML_DADOS_EXTRAS.CAMPO               = 'Forma CobranÃ§a'
                XML_DADOS_EXTRAS.VALOR               = string (mov-insu.cd-forma-pagto-cob)
                XML_DADOS_EXTRAS.XML_ALERTA_id       = recid (XML_ALERTA). 
                    
@@ -1454,7 +1454,7 @@ procedure LeProcedimento:
                                                      
             if not lg-gerar-alerta 
             then do:
-                log-manager:write-message (substitute ('registro sinalizado para não gerar alerta pelo especifico do cliente'),'DEBUG').
+                log-manager:write-message (substitute ('registro sinalizado para nÃ£o gerar alerta pelo especifico do cliente'),'DEBUG').
                 next.
             end.                                                     
             
@@ -1490,7 +1490,7 @@ procedure LeProcedimento:
                XML_ALERTA.VALOR                     = moviproc.vl-real-pago.           
         
         create XML_DADOS_EXTRAS.
-        assign XML_DADOS_EXTRAS.CAMPO               = 'Código Glosa'
+        assign XML_DADOS_EXTRAS.CAMPO               = 'CÃ³digo Glosa'
                XML_DADOS_EXTRAS.VALOR               = string (moviproc.cd-cod-glo)
                XML_DADOS_EXTRAS.XML_ALERTA_id       = recid (XML_ALERTA). 
 
@@ -1500,7 +1500,7 @@ procedure LeProcedimento:
                XML_DADOS_EXTRAS.XML_ALERTA_id       = recid (XML_ALERTA). 
     
         create XML_DADOS_EXTRAS.
-        assign XML_DADOS_EXTRAS.CAMPO               = 'Forma Cobrança'
+        assign XML_DADOS_EXTRAS.CAMPO               = 'Forma CobranÃ§a'
                XML_DADOS_EXTRAS.VALOR               = string (moviproc.cd-forma-pagto-cob)
                XML_DADOS_EXTRAS.XML_ALERTA_id       = recid (XML_ALERTA). 
                
@@ -1598,7 +1598,7 @@ procedure ProcessaMesAno:
             assign XML_ALERTA.CHAVE_SISTEMA             = "CO" + RegistroPrimary (buffer propost:handle)
                    XML_ALERTA.CODIGO                    = substitute ('&1/&2', propost.cd-modalidade, propost.nr-ter-adesao)
                    XML_ALERTA.TITULO                    = CH_MENSAGEM_NOTASERV_SEM_FATURA
-                   XML_ALERTA.DESCRICAO                 = substitute ("Termo: &1, período: &2/&3, espécie &4, seq: &5, emissão: &6, vencimento: &7, ult fat: &8/&9",
+                   XML_ALERTA.DESCRICAO                 = substitute ("Termo: &1, perÃ­odo: &2/&3, espÃ©cie &4, seq: &5, emissÃ£o: &6, vencimento: &7, ult fat: &8/&9",
                                                                       string (ter-ade.cd-modalidade, '99') + '/' + string (ter-ade.nr-ter-adesao), 
                                                                       in-mes,
                                                                       in-ano,
@@ -1629,7 +1629,7 @@ procedure ProcessaMesAno:
             assign XML_ALERTA.CHAVE_SISTEMA             = "CO" + RegistroPrimary(buffer propost:handle)
                    XML_ALERTA.CODIGO                    = substitute ('&1/&2', propost.cd-modalidade, propost.nr-ter-adesao)
                    XML_ALERTA.TITULO                    = CH_MENSAGEM_NOTASERV_VINCULADO_FATURA_INEXISTENTE
-                   XML_ALERTA.DESCRICAO                 = substitute ("Termo: &1, período: &2/&3, espécie &4, seq: &5, emissão: &6, vencimento: &7, ult fat: &8/&9",
+                   XML_ALERTA.DESCRICAO                 = substitute ("Termo: &1, perÃ­odo: &2/&3, espÃ©cie &4, seq: &5, emissÃ£o: &6, vencimento: &7, ult fat: &8/&9",
                                                                       string (ter-ade.cd-modalidade, '99') + '/' + string (ter-ade.nr-ter-adesao), 
                                                                       in-mes,
                                                                       in-ano,
@@ -1657,7 +1657,7 @@ procedure ProcessaMesAno:
             assign XML_ALERTA.CHAVE_SISTEMA             = "CO" + RegistroPrimary(buffer propost:handle)
                    XML_ALERTA.CODIGO                    = substitute ('&1/&2', propost.cd-modalidade, propost.nr-ter-adesao)
                    XML_ALERTA.TITULO                    = CH_MENSAGEM_FATURA_NAO_INTEGRADA_FINANCEIRO
-                   XML_ALERTA.DESCRICAO                 = substitute ("Termo: &1, período: &2/&3, espécie &4, seq: &5, emissão: &6, vencimento: &7, ult fat: &8/&9",
+                   XML_ALERTA.DESCRICAO                 = substitute ("Termo: &1, perÃ­odo: &2/&3, espÃ©cie &4, seq: &5, emissÃ£o: &6, vencimento: &7, ult fat: &8/&9",
                                                                       string (ter-ade.cd-modalidade, '99') + '/' + string (ter-ade.nr-ter-adesao), 
                                                                       in-mes,
                                                                       in-ano,
@@ -1693,7 +1693,7 @@ procedure ProcessaMesAno:
             assign XML_ALERTA.CHAVE_SISTEMA             = RegistroPrimary (buffer propost:handle)
                    XML_ALERTA.CODIGO                    = substitute ('&1/&2', propost.cd-modalidade, propost.nr-ter-adesao)
                    XML_ALERTA.TITULO                    = CH_MENSAGEM_FATURA_VINCULADO_TITULO_INEXISTENTE
-                   XML_ALERTA.DESCRICAO                 = substitute ("Termo: &1, período: &2/&3, espécie &4, seq: &5, emissão: &6, vencimento: &7, ult fat: &8/&9",
+                   XML_ALERTA.DESCRICAO                 = substitute ("Termo: &1, perÃ­odo: &2/&3, espÃ©cie &4, seq: &5, emissÃ£o: &6, vencimento: &7, ult fat: &8/&9",
                                                                       string (ter-ade.cd-modalidade, '99') + '/' + string (ter-ade.nr-ter-adesao), 
                                                                       in-mes,
                                                                       in-ano,
